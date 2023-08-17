@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const DrinkItemRow = ({name, description, price}) => {
+export default function DrinkItemRow ({id, name, description, price, onClick}) {
   return (
     <>
       <div className="list-group-item">
@@ -10,17 +10,19 @@ const DrinkItemRow = ({name, description, price}) => {
         </div>
         <div className="d-flex w-100 justify-content-between">
           <p className="mb-1">{description}</p>
-          <a href="#"><i className="bi bi-cart-plus" style={{ fontSize: "1.25rem", color: "cornflowerblue" }}></i></a>
+          <button type="button" className="btn btn-warning" onClick={() => onClick(id)}>
+            <i className="bi bi-cart-plus"></i>
+          </button>
         </div>
       </div>
     </>
   );
-};
-
-DrinkItemRow.propTypes = {
-  name: PropTypes.string,
-  description: PropTypes.string,
-  price: PropTypes.number
 }
 
-export default DrinkItemRow;
+DrinkItemRow.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string,
+  description: PropTypes.string,
+  price: PropTypes.number,
+  onClick: PropTypes.func
+}
