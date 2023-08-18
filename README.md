@@ -5,10 +5,10 @@ A simple multi-language drink ordering web application built using React. Users 
 ## Screen Shot
 
 Screen Shot 1
-![image](./public/ScreenShot1.png)
+![image](./public/ScreenShot1.png?raw=true)
 
 Screen Shot 2
-![image](./public/ScreenShot2.png)
+![image](./public/ScreenShot2.png?raw=true)
 
 ## Features:
 
