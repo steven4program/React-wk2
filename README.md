@@ -24,10 +24,10 @@ Screen Shot 2
 
 ## Components:
 
-App - The main component that integrates other components and handles state management.
-DrinkItemRow - Displays individual drinks available for order.
-CartModal - Modal pop-up displaying cart contents, with options to modify items or place an order.
-OrderHistory - Component to display a history of user's orders.
+- App - The main component that integrates other components and handles state management.
+- DrinkItemRow - Displays individual drinks available for order.
+- CartModal - Modal pop-up displaying cart contents, with options to modify items or place an order.
+- OrderHistory - Component to display a history of user's orders.
 
 ## Installation & Setup:
 

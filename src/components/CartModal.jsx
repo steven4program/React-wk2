@@ -34,7 +34,8 @@ export default function CartModal({cart, setCart, total, setTotal, note, setNote
     }
   }
 
-  const handleOrderSubmission = () => {
+  const handleOrderSubmission = (event) => {
+    event.stopPropagation()
     if (cart.length === 0) {
       alert(wordData.emptyCart[language]);
       return;
@@ -46,13 +47,10 @@ export default function CartModal({cart, setCart, total, setTotal, note, setNote
       note
     }
 
-    console.log(updatedOrder);
-
     setOrder(prevOrder => [...prevOrder, updatedOrder]);
-
+    setNote('');
     setCart([]);
     setTotal(0);
-    setNote('');
     alert(wordData.orderSuccess[language]);
   }
 
@@ -102,13 +100,13 @@ export default function CartModal({cart, setCart, total, setTotal, note, setNote
               </tbody>
             </table>
             <div className="d-flex justify-content-end">
-              <h4>{wordData.total[language]}{total}</h4>
+              <h4>{wordData.total[language]}: ${total}</h4>
             </div>
-            <textarea name="note" id="note" cols="90" rows="10" placeholder={wordData.note[language]} width="500" onChange={e => setNote(e.target.value)}></textarea>
+            <textarea name="note" id="note" cols="90" rows="10" value={note} placeholder={wordData.note[language]} width="500" onChange={e => setNote(e.target.value)}></textarea>
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">{wordData.close[language]}</button>
-            <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={handleOrderSubmission}>{wordData.checkout[language]}</button>
+            <button type="button" className="btn btn-primary" onClick={handleOrderSubmission}>{wordData.checkout[language]}</button>
           </div>
         </div>
       </div>
