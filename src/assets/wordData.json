@@ -1,0 +1,92 @@
+{
+	"shopName": {
+		"en": "React Drink Shop",
+		"jp": "React ドリンクスタンド",
+		"tc": "React 飲料店"
+	},
+	"menu": {
+		"en": "Menu",
+		"jp": "メニュー",
+		"tc": "菜單"
+	},
+	"shoppingCart": {
+		"en": "Shopping Cart",
+		"jp": "ショッピングカート",
+		"tc": "購物車"
+	},
+	"delete": {
+		"en": "Delete",
+		"jp": "削除",
+		"tc": "刪除"
+	},
+	"drink": {
+		"en": "Drink",
+		"jp": "ドリンク",
+		"tc": "飲料"
+	},
+	"description": {
+		"en": "Description",
+		"jp": "説明",
+		"tc": "描述"
+	},
+	"quantity": {
+		"en": "Quantity",
+		"jp": "数量",
+		"tc": "數量"
+	},
+	"price": {
+		"en": "Price",
+		"jp": "価格",
+		"tc": "價格"
+	},
+	"sum": {
+		"en": "Sum",
+		"jp": "小計",
+		"tc": "小計"
+	},
+	"total": {
+		"en": "Total",
+		"jp": "合計",
+		"tc": "總計"
+	},
+	"note": {
+		"en": "Note",
+		"jp": "備考",
+		"tc": "備註"
+	},
+	"close": {
+		"en": "Close",
+		"jp": "閉じる",
+		"tc": "關閉"
+	},
+	"checkout": {
+		"en": "Checkout",
+		"jp": "チェックアウト",
+		"tc": "結帳"
+	},
+	"orderHistory": {
+		"en": "Order History",
+		"jp": "注文履歴",
+		"tc": "訂單紀錄"
+	},
+	"order": {
+		"en": "Order",
+		"jp": "注文",
+		"tc": "訂單"
+	},
+	"emptyCart": {
+		"en": "Please select the product first",
+		"jp": "商品を選択してください",
+		"tc": "請先選購商品"
+	},
+	"orderSuccess": {
+		"en": "Order Success",
+		"jp": "注文成功",
+		"tc": "訂單已送出"
+	},
+	"clearOrder": {
+		"en": "Clear Order",
+		"jp": "注文をクリア",
+		"tc": "清除訂單"
+	}
+}

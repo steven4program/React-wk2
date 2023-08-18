@@ -10,7 +10,7 @@ export default function DrinkItemRow ({id, name, description, price, onClick}) {
         </div>
         <div className="d-flex w-100 justify-content-between">
           <p className="mb-1">{description}</p>
-          <button type="button" className="btn btn-warning" onClick={() => onClick(id)}>
+          <button type="button" className="btn btn-outline-primary" onClick={() => onClick(id)}>
             <i className="bi bi-cart-plus"></i>
           </button>
         </div>

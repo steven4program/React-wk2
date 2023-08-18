@@ -1,0 +1,50 @@
+[
+	{
+		"id": 1,
+		"name": "Pearl Milk Tea",
+		"description": "Creamy milk tea with chewy pearls",
+		"price": 50
+	},
+	{
+		"id": 2,
+		"name": "Winter Melon Lemon",
+		"description": "Refreshing winter melon paired with fresh lemon",
+		"price": 45
+	},
+	{
+		"id": 3,
+		"name": "Jade Lemon",
+		"description": "A perfect blend of green tea and lemon",
+		"price": 55
+	},
+	{
+		"id": 4,
+		"name": "Four Seasons Tea",
+		"description": "Rich Four Seasons tea with an incomparable aftertaste",
+		"price": 45
+	},
+	{
+		"id": 5,
+		"name": "Assam Milk Tea",
+		"description": "Assam black tea paired with creamy milk",
+		"price": 50
+	},
+	{
+		"id": 6,
+		"name": "Lemon Iced Tea",
+		"description": "A refreshing combination of lemon and iced tea",
+		"price": 45
+	},
+	{
+		"id": 7,
+		"name": "Mango Green Tea",
+		"description": "Unique flavor of mango and green tea",
+		"price": 55
+	},
+	{
+		"id": 8,
+		"name": "Matcha Latte",
+		"description": "A match made in heaven: matcha and milk",
+		"price": 60
+	}
+]

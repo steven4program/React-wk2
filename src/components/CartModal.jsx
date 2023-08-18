@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export default function CartModal({cart, setCart, total, setTotal}) {
+export default function CartModal({cart, setCart, total, setTotal, note, setNote, setOrder, wordData, language}) {
   const removeFromCart = (id) => {
     const itemToRemove = cart.find(item => item.id === id);
     const updatedCart = cart.filter(item => item.id !== id);
@@ -34,24 +34,46 @@ export default function CartModal({cart, setCart, total, setTotal}) {
     }
   }
 
+  const handleOrderSubmission = () => {
+    if (cart.length === 0) {
+      alert(wordData.emptyCart[language]);
+      return;
+    }
+
+    const updatedOrder = {
+      items: cart,
+      total,
+      note
+    }
+
+    console.log(updatedOrder);
+
+    setOrder(prevOrder => [...prevOrder, updatedOrder]);
+
+    setCart([]);
+    setTotal(0);
+    setNote('');
+    alert(wordData.orderSuccess[language]);
+  }
+
   return (
     <div className="modal fade" id="cartModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog modal-lg">
         <div className="modal-content">
           <div className="modal-header">
-            <h1 className="modal-title fs-5" id="exampleModalLabel">購物車</h1>
+            <h1 className="modal-title fs-5" id="exampleModalLabel">{wordData.shoppingCart[language]}</h1>
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div className="modal-body">
             <table className="table">
               <thead>
                 <tr>
-                  <th scope="col" width="50">刪除</th>
-                  <th scope="col">品項</th>
-                  <th scope="col">描述</th>
-                  <th scope="col" width="130">數量</th>
-                  <th scope="col">單價</th>
-                  <th scope="col">小計</th>
+                  <th scope="col" width="50">{wordData.delete[language]}</th>
+                  <th scope="col">{wordData.drink[language]}</th>
+                  <th scope="col">{wordData.description[language]}</th>
+                  <th scope="col" width="130">{wordData.quantity[language]}</th>
+                  <th scope="col">{wordData.price[language]}</th>
+                  <th scope="col">{wordData.sum[language]}</th>
                 </tr>
               </thead>
               <tbody>
@@ -80,13 +102,13 @@ export default function CartModal({cart, setCart, total, setTotal}) {
               </tbody>
             </table>
             <div className="d-flex justify-content-end">
-              <h4>總計：{total}</h4>
+              <h4>{wordData.total[language]}{total}</h4>
             </div>
-            <textarea name="note" id="note" cols="90" rows="10" placeholder="備註" width="500"></textarea>
+            <textarea name="note" id="note" cols="90" rows="10" placeholder={wordData.note[language]} width="500" onChange={e => setNote(e.target.value)}></textarea>
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
-            <button type="button" className="btn btn-primary">送出</button>
+            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">{wordData.close[language]}</button>
+            <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={handleOrderSubmission}>{wordData.checkout[language]}</button>
           </div>
         </div>
       </div>
@@ -99,4 +121,9 @@ CartModal.propTypes = {
   setCart: PropTypes.func,
   total: PropTypes.number,
   setTotal: PropTypes.func,
+  note: PropTypes.string,
+  setNote: PropTypes.func,
+  setOrder: PropTypes.func,
+  wordData: PropTypes.object,
+  language: PropTypes.string
 }
