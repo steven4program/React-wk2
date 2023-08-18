@@ -88,5 +88,10 @@
 		"en": "Clear Order",
 		"jp": "注文をクリア",
 		"tc": "清除訂單"
+	},
+	"createdAt": {
+		"en": "Created At",
+		"jp": "注文作成日時",
+		"tc": "訂單建立日期"
 	}
 }

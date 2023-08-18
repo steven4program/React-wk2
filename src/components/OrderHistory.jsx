@@ -17,10 +17,10 @@ const OrderItems = ({eachOrder}) => {
 export default function OrderHistory({order, language, wordData }) {
   return (
     <>
-      {order.map((eachOrder, index) => (
+      {[...order].reverse().map((eachOrder, index) => (
         <div className="card mb-3" key={index}>
           <div className="card-body">
-            <h4>{wordData.order[language]} {index + 1}</h4>
+            <h4>{wordData.order[language]} {order.length -index}</h4>
             <div className="card-title">
               <table className="table">
                 <thead>
@@ -37,6 +37,7 @@ export default function OrderHistory({order, language, wordData }) {
               <div className="text-start">{wordData.note[language]}: <span>{eachOrder.note}</span></div>
               <div className="text-end">
                 <h5>{wordData.total[language]}: <span>${eachOrder.total}</span></h5>
+                <p className="fw-light fst-italic">{wordData.createdAt[language]}: {eachOrder.createdAt}</p>
               </div>
             </div>
           </div>

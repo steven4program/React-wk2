@@ -17,21 +17,25 @@ function App() {
   const [language, setLanguage] = useState('en')
 
   useEffect(() => {
+    updateDrinkDataLanguage();
+  }, [language]);
+
+  const updateDrinkDataLanguage = () => {
+    const dataLookup = {
+      en: rawDataEn,
+      tc: rawDataTC,
+      jp: rawDataJp
+    };
+
+    setDrinkData(dataLookup[language] || rawDataEn);
+    resetCart();
+  };
+
+  const resetCart = () => {
     setCart([]);
     setTotal(0);
     setNote('');
-
-    switch(language) {
-      case 'tc':
-        setDrinkData(rawDataTC)
-        break;
-      case 'jp':
-        setDrinkData(rawDataJp)
-        break;
-      default:
-        setDrinkData(rawDataEn)
-    }
-  }, [drinkData, language])
+  };
 
   const addToCart = (id) => {
     const itemExist = cart.find(item => item.id === id)
@@ -46,8 +50,8 @@ function App() {
       setTotal(total + itemExist.price)
     } else {
       const itemToAdd = { ...drinkData.find(drink => drink.id === id), qty: 1 };
-      setCart([...cart, itemToAdd]);
-      setTotal(total + itemToAdd.price)
+      setCart(prevCart => [...prevCart, itemToAdd]);
+      setTotal(prevTotal => prevTotal + itemToAdd.price);
     }
   }
 

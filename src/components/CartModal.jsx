@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export default function CartModal({cart, setCart, total, setTotal, note, setNote, setOrder, wordData, language}) {
+function CartModal({cart, setCart, total, setTotal, note, setNote, setOrder, wordData, language}) {
   const removeFromCart = (id) => {
     const itemToRemove = cart.find(item => item.id === id);
     const updatedCart = cart.filter(item => item.id !== id);
@@ -41,10 +41,14 @@ export default function CartModal({cart, setCart, total, setTotal, note, setNote
       return;
     }
 
+    const date = new Date();
+    const formattedDate = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()} ${date.getHours()}:${String(date.getMinutes()).padStart(2, '0')}`;
+
     const updatedOrder = {
       items: cart,
       total,
-      note
+      note,
+      createdAt: formattedDate
     }
 
     setOrder(prevOrder => [...prevOrder, updatedOrder]);
@@ -102,11 +106,26 @@ export default function CartModal({cart, setCart, total, setTotal, note, setNote
             <div className="d-flex justify-content-end">
               <h4>{wordData.total[language]}: ${total}</h4>
             </div>
-            <textarea name="note" id="note" cols="90" rows="10" value={note} placeholder={wordData.note[language]} width="500" onChange={e => setNote(e.target.value)}></textarea>
+            <textarea 
+              name="note" 
+              id="note" 
+              cols="90" 
+              rows="4" 
+              value={note} 
+              placeholder={wordData.note[language]} 
+              width="500" 
+              onChange={e => setNote(e.target.value)}
+            ></textarea>
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">{wordData.close[language]}</button>
-            <button type="button" className="btn btn-primary" onClick={handleOrderSubmission}>{wordData.checkout[language]}</button>
+            <button 
+              type="button" 
+              className="btn btn-primary" 
+              data-bs-dismiss="modal" 
+              onClick={handleOrderSubmission}>
+                {wordData.checkout[language]}
+            </button>
           </div>
         </div>
       </div>
@@ -125,3 +144,5 @@ CartModal.propTypes = {
   wordData: PropTypes.object,
   language: PropTypes.string
 }
+
+export default CartModal;
